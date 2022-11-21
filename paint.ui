@@ -20,7 +20,18 @@
   <property name="unifiedTitleAndToolBarOnMac">
    <bool>false</bool>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1360</width>
+      <height>730</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -93,7 +104,7 @@
   <action name="actionSave">
    <property name="icon">
     <iconset>
-     <normaloff>save.png</normaloff>save.png</iconset>
+     <normaloff>img/save.png</normaloff>img/save.png</iconset>
    </property>
    <property name="text">
     <string>Save</string>
@@ -102,7 +113,7 @@
   <action name="actionLoad">
    <property name="icon">
     <iconset>
-     <normaloff>load.png</normaloff>load.png</iconset>
+     <normaloff>img/load.png</normaloff>img/load.png</iconset>
    </property>
    <property name="text">
     <string>Load</string>
@@ -111,7 +122,7 @@
   <action name="actionExit">
    <property name="icon">
     <iconset>
-     <normaloff>exit.png</normaloff>exit.png</iconset>
+     <normaloff>img/exit.png</normaloff>img/exit.png</iconset>
    </property>
    <property name="text">
     <string>Exit</string>
@@ -120,7 +131,7 @@
   <action name="actionClear">
    <property name="icon">
     <iconset>
-     <normaloff>delete.png</normaloff>delete.png</iconset>
+     <normaloff>img/delete.png</normaloff>img/delete.png</iconset>
    </property>
    <property name="text">
     <string>Clear</string>
@@ -129,7 +140,7 @@
   <action name="actionLine">
    <property name="icon">
     <iconset>
-     <normaloff>line.png</normaloff>line.png</iconset>
+     <normaloff>img/line.png</normaloff>img/line.png</iconset>
    </property>
    <property name="text">
     <string>Line</string>
@@ -138,7 +149,7 @@
   <action name="actionCircle">
    <property name="icon">
     <iconset>
-     <normaloff>circle.png</normaloff>circle.png</iconset>
+     <normaloff>img/circle.png</normaloff>img/circle.png</iconset>
    </property>
    <property name="text">
     <string>Circle</string>
@@ -147,7 +158,7 @@
   <action name="actionrectangle">
    <property name="icon">
     <iconset>
-     <normaloff>Rectangle.png</normaloff>Rectangle.png</iconset>
+     <normaloff>img/Rectangle.png</normaloff>img/Rectangle.png</iconset>
    </property>
    <property name="text">
     <string>Rectangle</string>
@@ -156,7 +167,7 @@
   <action name="actionEraser">
    <property name="icon">
     <iconset>
-     <normaloff>Eraser.png</normaloff>Eraser.png</iconset>
+     <normaloff>img/Eraser.png</normaloff>img/Eraser.png</iconset>
    </property>
    <property name="text">
     <string>Eraser</string>
@@ -165,7 +176,7 @@
   <action name="actionColor">
    <property name="icon">
     <iconset>
-     <normaloff>Color.png</normaloff>Color.png</iconset>
+     <normaloff>img/Color.png</normaloff>img/Color.png</iconset>
    </property>
    <property name="text">
     <string>Color</string>
