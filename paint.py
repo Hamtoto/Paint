@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1400, 800)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("web.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("./img/web.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setUnifiedTitleAndToolBarOnMac(False)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -57,7 +57,7 @@ class Ui_MainWindow(object):
         #Save 버튼
         self.actionSave = QtWidgets.QAction(MainWindow)
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("save.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("./img/save.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionSave.setIcon(icon1)
         self.actionSave.setObjectName("actionSave")
         self.actionSave.setShortcut('ctrl+S')
@@ -65,7 +65,7 @@ class Ui_MainWindow(object):
         #Load 버튼
         self.actionLoad = QtWidgets.QAction(MainWindow)
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("load.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("./img/load.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionLoad.setIcon(icon2)
         self.actionLoad.setObjectName("actionLoad")
         self.actionLoad.setShortcut('ctrl+L')
@@ -73,7 +73,7 @@ class Ui_MainWindow(object):
         #Exit 버튼
         self.actionExit = QtWidgets.QAction(MainWindow)
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("exit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("./img/exit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionExit.setIcon(icon3)
         self.actionExit.setObjectName("actionExit")
         self.actionExit.setShortcut('ctrl+Q')
@@ -82,7 +82,7 @@ class Ui_MainWindow(object):
         #Clear 버튼
         self.actionClear = QtWidgets.QAction(MainWindow)
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("delete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("./img/delete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionClear.setIcon(icon4)
         self.actionClear.setObjectName("actionClear")
         self.actionClear.setShortcut('ctrl+C')
@@ -90,7 +90,7 @@ class Ui_MainWindow(object):
         #Line 버튼
         self.actionLine = QtWidgets.QAction(MainWindow)
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("line.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap("./img/line.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionLine.setIcon(icon5)
         self.actionLine.setObjectName("actionLine")
         self.actionLine.setShortcut('alt+L')
@@ -98,7 +98,7 @@ class Ui_MainWindow(object):
         #Circle 버튼
         self.actionCircle = QtWidgets.QAction(MainWindow)
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("circle.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon6.addPixmap(QtGui.QPixmap("./img/circle.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionCircle.setIcon(icon6)
         self.actionCircle.setObjectName("actionCircle")
         self.actionCircle.setShortcut('alt+C')
@@ -106,7 +106,7 @@ class Ui_MainWindow(object):
         #Rectangle 버튼
         self.actionrectangle = QtWidgets.QAction(MainWindow)
         icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("Rectangle.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon7.addPixmap(QtGui.QPixmap("./img/Rectangle.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionrectangle.setIcon(icon7)
         self.actionrectangle.setObjectName("actionrectangle")
         self.actionrectangle.setShortcut('alt+R')
@@ -114,7 +114,7 @@ class Ui_MainWindow(object):
         #Eraser 버튼
         self.actionEraser = QtWidgets.QAction(MainWindow)
         icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("Eraser.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon8.addPixmap(QtGui.QPixmap("./img/Eraser.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionEraser.setIcon(icon8)
         self.actionEraser.setObjectName("actionEraser")
         self.actionEraser.setShortcut('alt+E')
@@ -122,7 +122,7 @@ class Ui_MainWindow(object):
         #Color 버튼
         self.actionColor = QtWidgets.QAction(MainWindow)
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("Color.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon9.addPixmap(QtGui.QPixmap("./img/Color.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionColor.setIcon(icon9)
         self.actionColor.setObjectName("actionColor")
 
