@@ -2,13 +2,14 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QMenu, QMenuBar, QAction,
 from PyQt5.QtGui import QIcon, QImage, QPainter, QPen, QBrush
 from PyQt5.QtCore import Qt, QPoint
 import sys
+from PyQt5.QtWidgets import QToolBar
 
 
 class Window(QMainWindow):
     def __init__(self):
         super().__init__()
 
-
+        #사전 설정
         title = "그림판"
         top = 200
         left = 200
@@ -21,6 +22,7 @@ class Window(QMainWindow):
         self.setGeometry(top, left, width, height)
         self.setWindowIcon(QIcon(icon))
 
+
         self.image = QImage(self.size(), QImage.Format_RGB32)
         self.image.fill(Qt.white)
 
@@ -29,29 +31,35 @@ class Window(QMainWindow):
         self.brushColor = Qt.black
         self.lastPoint = QPoint()
 
+        #메뉴바 설정
         mainMenu = self.menuBar()
         fileMenu = mainMenu.addMenu("파일")
         brushSize = mainMenu.addMenu("팬 사이즈")
         brushColor = mainMenu.addMenu("색상")
 
+        #Save
         saveAction = QAction(QIcon("img/save.png"), "저장",self)
         saveAction.setShortcut("Ctrl+S")
         fileMenu.addAction(saveAction)
         saveAction.triggered.connect(self.save)
         
+        #초기화
         clearAction = QAction(QIcon("img/delete.png"), "초기화", self)
         clearAction.setShortcut("Ctrl+C")
         fileMenu.addAction(clearAction)
         clearAction.triggered.connect(self.clear)
 
+        #구분선
         fileMenu.addSeparator()
         
+        #Exit
         exitAction = QAction(QIcon("img/exit.png"), "나가기", self)
         exitAction.setShortcut("Ctrl+Q")
+        exitAction.setStatusTip('프로그램 나가기')
         fileMenu.addAction(exitAction)
         exitAction.triggered.connect(quit)
-        
     
+        #팬 사이즈 메뉴
         threepxAction = QAction("3px", self)
         brushSize.addAction(threepxAction)
         threepxAction.triggered.connect(self.threePixel)
@@ -68,6 +76,7 @@ class Window(QMainWindow):
         brushSize.addAction(ninepxAction)
         ninepxAction.triggered.connect(self.ninePixel)
 
+        #색상 메뉴
         blackAction = QAction(QIcon("./img/black.png"), "검정색", self)
         blackAction.setShortcut("Ctrl+B")
         brushColor.addAction(blackAction)
@@ -82,7 +91,6 @@ class Window(QMainWindow):
         whitekAction.setShortcut("Ctrl+W")
         brushColor.addAction(whitekAction)
         whitekAction.triggered.connect(self.whiteColor)
-
 
         redAction = QAction(QIcon("./img/red.png"), "빨강색", self)
         redAction.setShortcut("Ctrl+R")
@@ -100,13 +108,29 @@ class Window(QMainWindow):
         yellowAction.triggered.connect(self.yellowColor)
 
 
+        #툴바
+        self.statusBar()
+        self.toolbar = self.addToolBar('파일 툴바')
+        self.toolbar.addAction(exitAction)
+        self.toolbar.addAction(saveAction)
+        self.toolbar.addAction(clearAction)
+        
+        ColorToolBar = QToolBar("색상툴바", self)
+        self.addToolBar(Qt.LeftToolBarArea, ColorToolBar)
+        ColorToolBar.addAction(blackAction)
+        ColorToolBar.addAction(whitekAction)
+        ColorToolBar.addAction(redAction)
+        ColorToolBar.addAction(greenAction)
+        ColorToolBar.addAction(blueAction)
+        ColorToolBar.addAction(yellowAction)
+        
+    #마우스 눌림 이벤트
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
             self.drawing = True
             self.lastPoint = event.pos()
-            #print(self.lastPoint)
 
-
+    #마우스 이동 이벤트
     def mouseMoveEvent(self, event):
         if(event.buttons() & Qt.LeftButton) & self.drawing:
             painter = QPainter(self.image)
@@ -115,27 +139,29 @@ class Window(QMainWindow):
             self.lastPoint = event.pos()
             self.update()
 
+    #마우스 누르는동안 이벤트
     def mouseReleaseEvent(self, event):
-
         if event.button() == Qt.LeftButton:
             self.drawing = False
 
-
+    #그리기 이벤트
     def paintEvent(self, event):
         canvasPainter  = QPainter(self)
         canvasPainter.drawImage(self.rect(),self.image, self.image.rect() )
 
+    #저장 이벤트
     def save(self):
         filePath, _ = QFileDialog.getSaveFileName(self, "Save Image", "", "PNG(*.png);;JPEG(*.jpg *.jpeg);;All Files(*.*) ")
-
         if filePath == "":
             return
         self.image.save(filePath)
 
+    #초기화 함수 
     def clear(self):
         self.image.fill(Qt.white)
         self.update()
 
+    #팬 사이즈 설정 함수
     def threePixel(self):
         self.brushSize = 3
 
@@ -148,6 +174,7 @@ class Window(QMainWindow):
     def ninePixel(self):
         self.brushSize = 10
 
+    #색상 설정 함수
     def blackColor(self):
         self.brushColor = Qt.black
         
