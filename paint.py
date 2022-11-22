@@ -16,8 +16,7 @@ class Window(QMainWindow):
         width = 1200
         height = 800
 
-        icon = "img/web.png"
-
+        icon = "web.png"
         self.setWindowTitle(title)
         self.setGeometry(top, left, width, height)
         self.setWindowIcon(QIcon(icon))
@@ -38,27 +37,17 @@ class Window(QMainWindow):
         brushColor = mainMenu.addMenu("색상")
 
         #Save
-        saveAction = QAction(QIcon("img/save.png"), "저장",self)
+        saveAction = QAction(QIcon("save.png"), "저장",self)
         saveAction.setShortcut("Ctrl+S")
         fileMenu.addAction(saveAction)
         saveAction.triggered.connect(self.save)
         
         #초기화
-        clearAction = QAction(QIcon("img/delete.png"), "초기화", self)
+        clearAction = QAction(QIcon("delete.png"), "초기화", self)
         clearAction.setShortcut("Ctrl+C")
         fileMenu.addAction(clearAction)
         clearAction.triggered.connect(self.clear)
-
-        #구분선
-        fileMenu.addSeparator()
         
-        #Exit
-        exitAction = QAction(QIcon("img/exit.png"), "나가기", self)
-        exitAction.setShortcut("Ctrl+Q")
-        exitAction.setStatusTip('프로그램 나가기')
-        fileMenu.addAction(exitAction)
-        exitAction.triggered.connect(quit)
-    
         #팬 사이즈 메뉴
         threepxAction = QAction("3px", self)
         brushSize.addAction(threepxAction)
@@ -77,32 +66,32 @@ class Window(QMainWindow):
         ninepxAction.triggered.connect(self.ninePixel)
 
         #색상 메뉴
-        blackAction = QAction(QIcon("./img/black.png"), "검정색", self)
+        blackAction = QAction(QIcon("black.png"), "검정색", self)
         blackAction.setShortcut("Ctrl+B")
         brushColor.addAction(blackAction)
         blackAction.triggered.connect(self.blackColor)
 
-        blueAction = QAction(QIcon("./img/blue.png"), "파란색", self)
+        blueAction = QAction(QIcon("blue.png"), "파란색", self)
         blueAction.setShortcut("Ctrl+U")
         brushColor.addAction(blueAction)
         blueAction.triggered.connect(self.blueColor)
 
-        whitekAction = QAction(QIcon("./img/white.png"), "하얀색", self)
+        whitekAction = QAction(QIcon("white.png"), "하얀색", self)
         whitekAction.setShortcut("Ctrl+W")
         brushColor.addAction(whitekAction)
         whitekAction.triggered.connect(self.whiteColor)
 
-        redAction = QAction(QIcon("./img/red.png"), "빨강색", self)
+        redAction = QAction(QIcon("red.png"), "빨강색", self)
         redAction.setShortcut("Ctrl+R")
         brushColor.addAction(redAction)
         redAction.triggered.connect(self.redColor)
 
-        greenAction = QAction(QIcon("./img/green.png"), "초록색", self)
+        greenAction = QAction(QIcon("green.png"), "초록색", self)
         greenAction.setShortcut("Ctrl+G")
         brushColor.addAction(greenAction)
         greenAction.triggered.connect(self.greenColor)
 
-        yellowAction = QAction(QIcon("./img/yellow.png"), "노란색", self)
+        yellowAction = QAction(QIcon("yellow.png"), "노란색", self)
         yellowAction.setShortcut("Ctrl+Y")
         brushColor.addAction(yellowAction)
         yellowAction.triggered.connect(self.yellowColor)
@@ -111,7 +100,6 @@ class Window(QMainWindow):
         #툴바
         self.statusBar()
         self.toolbar = self.addToolBar('파일 툴바')
-        self.toolbar.addAction(exitAction)
         self.toolbar.addAction(saveAction)
         self.toolbar.addAction(clearAction)
         
@@ -123,7 +111,7 @@ class Window(QMainWindow):
         ColorToolBar.addAction(greenAction)
         ColorToolBar.addAction(blueAction)
         ColorToolBar.addAction(yellowAction)
-        
+
     #마우스 눌림 이벤트
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
